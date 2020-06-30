@@ -33,23 +33,16 @@
         if (tweets) {
 //            NSLog(@"😎😎😎 Successfully loaded home timeline");
             self.tweetsArray = (NSMutableArray *) tweets;
-//            for (NSDictionary *dictionary in tweets) {
-//               [self.tweetsArray addObject:dictionary];
-//                NSString *text = dictionary[@"text"];
-//                NSLog(@"%@", text);
+
+//            for (Tweet *tweet in self.tweetsArray) {
+//                NSLog(@"%@", tweet.text);
 //            }
-//            NSLog(@"here");
-            for (Tweet *tweet in self.tweetsArray) {
-                NSLog(@"%@", tweet.text);
-            }
-//            NSLog(@"down here");
         } else {
             NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
         }
+        
         [self.tableView reloadData];
     }];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,25 +55,23 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"went in");
     TweetCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
     
     Tweet *tweet = self.tweetsArray[indexPath.row];
 
     cell.tweet = tweet;
     cell.name.text = tweet.user.name;
-    cell.screenName.text = tweet.user.screenName;
+    cell.screenName.text = [NSString stringWithFormat:@"@%@",tweet.user.screenName];
     cell.text.text = tweet.text;
     cell.createdAt.text = tweet.createdAtString;
     cell.retweetCount.text = [NSString stringWithFormat:@"%d", tweet.retweetCount];
     cell.likeCount.text = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
     
-//    NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
-//    NSString *posterURLString = [baseURLString stringByAppendingString:movie[@"poster_path"]];
-//    NSURL *posterURL = [NSURL URLWithString:posterURLString];
-//    cell.moviePosterView.image = nil;
-//    [cell.moviePosterView setImageWithURL:posterURL];
-
+    // getting profile picture from api and setting it in the table cell
+    NSURL *profileURL = [NSURL URLWithString:tweet.user.profileImageURL];
+    cell.profilePicture.image = nil;
+    [cell.profilePicture setImageWithURL:profileURL];
+    
     return cell;
 }
 
