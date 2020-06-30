@@ -19,9 +19,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *text;
 @property (weak, nonatomic) IBOutlet UILabel *createdAt;
 
-@property (weak, nonatomic) IBOutlet UILabel *replyCount;
-@property (weak, nonatomic) IBOutlet UIButton *replyButton;
-
 @property (weak, nonatomic) IBOutlet UILabel *retweetCount;
 @property (weak, nonatomic) IBOutlet UIButton *retweetButton;
 

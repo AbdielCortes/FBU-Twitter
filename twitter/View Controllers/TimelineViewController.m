@@ -28,6 +28,30 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
+    [self fetchTweets];
+//    // Get timeline
+//    [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
+//        if (tweets) {
+////            NSLog(@"😎😎😎 Successfully loaded home timeline");
+//            self.tweetsArray = (NSMutableArray *) tweets;
+//
+////            for (Tweet *tweet in self.tweetsArray) {
+////                NSLog(@"%@", tweet.text);
+////            }
+//        } else {
+//            NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
+//        }
+//
+//        [self.tableView reloadData];
+//    }];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)fetchTweets {
     // Get timeline
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
@@ -43,11 +67,6 @@
         
         [self.tableView reloadData];
     }];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -71,6 +90,8 @@
     NSURL *profileURL = [NSURL URLWithString:tweet.user.profileImageURL];
     cell.profilePicture.image = nil;
     [cell.profilePicture setImageWithURL:profileURL];
+    
+    self.tableView.rowHeight = 161;
     
     return cell;
 }

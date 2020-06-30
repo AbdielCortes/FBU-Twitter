@@ -89,25 +89,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oLM-ya-uAb">
-                                            <rect key="frame" x="87" y="35" width="272" height="101"/>
+                                            <rect key="frame" x="87" y="35" width="272" height="102"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="repNum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XzW-8Z-KIo">
-                                            <rect key="frame" x="87" y="144" width="35" height="14"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="9"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gBb-XN-cUe">
-                                            <rect key="frame" x="121" y="131" width="34" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="reply"/>
-                                        </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="reCount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tx2-0r-koB">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="reCount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tx2-0r-koB">
                                             <rect key="frame" x="157" y="145" width="34" height="14"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="9"/>
@@ -117,9 +105,9 @@
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2v-ML-Ebw">
                                             <rect key="frame" x="192" y="132" width="31" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="retweet"/>
+                                            <state key="normal" title="rt"/>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="likeNum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XT7-bt-7jd">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="likeNum" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XT7-bt-7jd">
                                             <rect key="frame" x="228" y="145" width="35" height="14"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="9"/>
@@ -146,8 +134,6 @@
                                     <outlet property="likeCount" destination="XT7-bt-7jd" id="meJ-pJ-t07"/>
                                     <outlet property="name" destination="5aZ-WH-iPv" id="8ys-V9-gUb"/>
                                     <outlet property="profilePicture" destination="cY1-xM-sTj" id="LQA-8a-btm"/>
-                                    <outlet property="replyButton" destination="gBb-XN-cUe" id="laz-g3-szD"/>
-                                    <outlet property="replyCount" destination="XzW-8Z-KIo" id="MFn-g9-J9s"/>
                                     <outlet property="retweetButton" destination="c2v-ML-Ebw" id="Zue-j3-urV"/>
                                     <outlet property="retweetCount" destination="tx2-0r-koB" id="GZP-EE-UDl"/>
                                     <outlet property="screenName" destination="Tb4-4c-yjY" id="Htn-MJ-ej4"/>
