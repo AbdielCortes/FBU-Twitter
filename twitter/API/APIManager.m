@@ -10,8 +10,8 @@
 #import "Tweet.h"
 
 static NSString * const baseURLString = @"https://api.twitter.com";
-static NSString * const consumerKey = @"9XJO9d7lcW24mdVEVXfavKTk3";
-static NSString * const consumerSecret = @"JNFZffHVJ6JSL2DMWaPUhgEmQzAIGUGumhR64mbHUo0ce1Bp1N";
+static NSString * const consumerKey = @"key";
+static NSString * const consumerSecret = @"key";
 
 @interface APIManager()
 
@@ -84,6 +84,18 @@ static NSString * const consumerSecret = @"JNFZffHVJ6JSL2DMWaPUhgEmQzAIGUGumhR64
             completion(nil, error);
         }];
 
+}
+
+- (void)postStatusWithText:(NSString *)text completion:(void (^)(Tweet *, NSError *))completion{
+    NSString *urlString = @"1.1/statuses/update.json";
+    NSDictionary *parameters = @{@"status": text};
+    
+    [self POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable tweetDictionary) {
+        Tweet *tweet = [[Tweet alloc]initWithDictionary:tweetDictionary];
+        completion(tweet, nil);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        completion(nil, error);
+    }];
 }
 
 @end

@@ -46,14 +46,14 @@
     // Get timeline
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
-//            NSLog(@"😎😎😎 Successfully loaded home timeline");
+//            NSLog(@"Successfully loaded home timeline");
             self.tweetsArray = (NSMutableArray *) tweets;
 
 //            for (Tweet *tweet in self.tweetsArray) {
 //                NSLog(@"%@", tweet.text);
 //            }
         } else {
-            NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
+            NSLog(@"Error getting home timeline: %@", error.localizedDescription);
         }
         
         [self.tableView reloadData];
