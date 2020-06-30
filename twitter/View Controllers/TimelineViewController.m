@@ -10,9 +10,10 @@
 #import "APIManager.h"
 #import "Tweet.h"
 #import "TweetCell.h"
+#import "ComposeViewController.h"
 #import "UIImageView+AFNetworking.h"
 
-@interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate, ComposeViewControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
@@ -88,6 +89,18 @@
     return cell;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    UINavigationController *navigationController = [segue destinationViewController];
+    ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+    composeController.delegate = self;
+}
+
+- (void)didTweet:(nonnull Tweet *)tweet {
+    [self.tweetsArray addObject:tweet];
+    [self fetchTweets];
+    [self.tableView reloadData];
+}
+
 /*
 #pragma mark - Navigation
 
@@ -97,6 +110,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-
 
 @end
