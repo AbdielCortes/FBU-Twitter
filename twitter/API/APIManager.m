@@ -49,30 +49,6 @@ static NSString * const consumerSecret = @"key";
 }
 
 - (void)getHomeTimelineWithCompletion:(void(^)(NSArray *tweets, NSError *error))completion {
-    
-//    [self GET:@"1.1/statuses/home_timeline.json"
-//   parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *  _Nullable tweetDictionaries) {
-//
-//       // Manually cache the tweets. If the request fails, restore from cache if possible.
-//       NSData *data = [NSKeyedArchiver archivedDataWithRootObject:tweetDictionaries];
-//       [[NSUserDefaults standardUserDefaults] setValue:data forKey:@"hometimeline_tweets"];
-//
-//       completion(tweetDictionaries, nil);
-//
-//   } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//
-//       NSArray *tweetDictionaries = nil;
-//
-//       // Fetch tweets from cache if possible
-//       NSData *data = [[NSUserDefaults standardUserDefaults] valueForKey:@"hometimeline_tweets"];
-//       if (data != nil) {
-//           tweetDictionaries = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-//       }
-//
-//       completion(tweetDictionaries, error);
-//
-//
-//   }];
      // Create a GET Request
     [self GET:@"1.1/statuses/home_timeline.json"
         parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *  _Nullable tweetDictionaries) {
@@ -90,6 +66,25 @@ static NSString * const consumerSecret = @"key";
     NSString *urlString = @"1.1/statuses/update.json";
     NSDictionary *parameters = @{@"status": text};
     
+    [self POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable tweetDictionary) {
+        Tweet *tweet = [[Tweet alloc]initWithDictionary:tweetDictionary];
+        completion(tweet, nil);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        completion(nil, error);
+    }];
+}
+
+// sends post requests to the api in order to retweet, un-retweet, favorite, and un-favourite
+// each post request has its own url:
+//
+// retweet: @"1.1/statuses/retweet/ID.json"
+// un-retweet: @"1.1/statuses/unretweet/ID.json"
+// replace 'ID' with the tweets id 
+
+// favorite: @"1.1/favorites/create.json"
+// un-favorite: @"1.1/favorites/destroy.json"
+- (void)postRetweetFavorite:(Tweet *)tweet urlString:(NSString*)urlString completion:(void (^)(Tweet *, NSError *))completion {
+    NSDictionary *parameters = @{@"id": tweet.idStr};
     [self POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable tweetDictionary) {
         Tweet *tweet = [[Tweet alloc]initWithDictionary:tweetDictionary];
         completion(tweet, nil);

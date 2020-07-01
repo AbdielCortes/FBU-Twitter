@@ -68,22 +68,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TweetCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
-    
-    Tweet *tweet = self.tweetsArray[indexPath.row];
-
-    cell.tweet = tweet;
-    cell.name.text = tweet.user.name;
-    cell.screenName.text = [NSString stringWithFormat:@"@%@",tweet.user.screenName];
-    cell.text.text = tweet.text;
-    cell.createdAt.text = tweet.createdAtString;
-    cell.retweetCount.text = [NSString stringWithFormat:@"%d", tweet.retweetCount];
-    cell.likeCount.text = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
-    
-    // getting profile picture from api and setting it in the table cell
-    NSURL *profileURL = [NSURL URLWithString:tweet.user.profileImageURL];
-    cell.profilePicture.image = nil;
-    [cell.profilePicture setImageWithURL:profileURL];
-    
+    cell.tweet = self.tweetsArray[indexPath.row];
     self.tableView.rowHeight = 161;
     
     return cell;

@@ -18,4 +18,6 @@
 
 - (void)postStatusWithText:(NSString *)text completion:(void (^)(Tweet *, NSError *))completion;
 
+- (void)postRetweetFavorite:(Tweet *)tweet urlString:(NSString*)urlString completion:(void (^)(Tweet *, NSError *))completion;
+
 @end
