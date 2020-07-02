@@ -71,7 +71,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TweetCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
     cell.tweet = self.tweetsArray[indexPath.row];
-    self.tableView.rowHeight = 161;
+//    self.tableView.rowHeight = 161;
     
     return cell;
 }
