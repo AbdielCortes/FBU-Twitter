@@ -7,6 +7,7 @@
 //
 
 #import "Tweet.h"
+#import "NSDate+DateTools.h"
 
 @implementation Tweet
 
@@ -41,6 +42,10 @@
         formatter.dateFormat = @"E MMM d HH:mm:ss Z y";
         // Convert String to Date
         NSDate *date = [formatter dateFromString:createdAtOriginalString];
+        
+        // used DateTools to calculate how long it has been since the tweet was created
+        self.timeSinceCreation = date.shortTimeAgoSinceNow;
+        
         // Configure output format
         formatter.dateStyle = NSDateFormatterShortStyle;
         formatter.timeStyle = NSDateFormatterNoStyle;

@@ -29,7 +29,8 @@
     self.name.text = tweet.user.name;
     self.screenName.text = [NSString stringWithFormat:@"@%@",tweet.user.screenName];
     self.text.text = tweet.text;
-    self.createdAt.text = tweet.createdAtString;
+    //self.createdAt.text = tweet.createdAtString;
+    self.timeSinceCreation.text = tweet.timeSinceCreation;
     self.retweetCount.text = [NSString stringWithFormat:@"%d", tweet.retweetCount];
     self.likeCount.text = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
     

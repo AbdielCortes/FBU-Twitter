@@ -190,7 +190,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="createdAt" destination="YKV-9e-6rL" id="eO8-dW-a7f"/>
                                             <outlet property="likeButton" destination="cTm-O8-vBu" id="Uix-yZ-zhE"/>
                                             <outlet property="likeCount" destination="GZO-CX-0pc" id="3rC-b7-5hq"/>
                                             <outlet property="name" destination="CUw-7C-35R" id="lvm-zq-92c"/>
@@ -199,6 +198,7 @@
                                             <outlet property="retweetCount" destination="zNf-2q-XYK" id="863-Ej-vGc"/>
                                             <outlet property="screenName" destination="8FN-b3-c1p" id="GBt-uL-xqE"/>
                                             <outlet property="text" destination="MkZ-gZ-6nC" id="MRn-8y-eyZ"/>
+                                            <outlet property="timeSinceCreation" destination="YKV-9e-6rL" id="Yc5-rp-ung"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
