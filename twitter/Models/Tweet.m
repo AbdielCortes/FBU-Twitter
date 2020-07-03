@@ -47,8 +47,9 @@
         self.timeSinceCreation = date.shortTimeAgoSinceNow;
         
         // Configure output format
-        formatter.dateStyle = NSDateFormatterShortStyle;
-        formatter.timeStyle = NSDateFormatterNoStyle;
+        formatter.dateStyle = NSDateFormatterLongStyle;
+        formatter.timeStyle = NSDateFormatterShortStyle;
+        
         // Convert Date to String
         self.createdAtString = [formatter stringFromDate:date];
     }
