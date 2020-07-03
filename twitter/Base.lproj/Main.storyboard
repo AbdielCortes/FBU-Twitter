@@ -161,7 +161,6 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Yel-jc-utp" firstAttribute="leading" secondItem="exM-dk-Mcs" secondAttribute="leading" constant="94" id="1aR-oh-gM6"/>
                                                 <constraint firstItem="cTm-O8-vBu" firstAttribute="top" relation="greaterThanOrEqual" secondItem="MkZ-gZ-6nC" secondAttribute="bottom" id="5f1-M1-fH4"/>
                                                 <constraint firstItem="8FN-b3-c1p" firstAttribute="top" secondItem="exM-dk-Mcs" secondAttribute="topMargin" constant="3" id="7hz-aR-jbt"/>
                                                 <constraint firstItem="NMI-Rb-Kxx" firstAttribute="leading" secondItem="Hc3-lc-DfO" secondAttribute="trailing" constant="1" id="8hy-hX-phM"/>
@@ -189,6 +188,9 @@
                                                 <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="8FN-b3-c1p" secondAttribute="trailing" constant="174.5" id="zcx-Mi-yTt"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstItem="NMI-Rb-Kxx" firstAttribute="centerX" secondItem="rPo-bN-24m" secondAttribute="centerX" id="s6W-vq-AlV"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="likeButton" destination="cTm-O8-vBu" id="Uix-yZ-zhE"/>
                                             <outlet property="likeCount" destination="GZO-CX-0pc" id="3rC-b7-5hq"/>
@@ -242,16 +244,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xJy-Ri-i1Z">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xJy-Ri-i1Z">
                                 <rect key="frame" x="16" y="72" width="343" height="246"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="246" id="sNM-jq-WE8"/>
+                                </constraints>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="xJy-Ri-i1Z" firstAttribute="leading" secondItem="dn1-d8-i4P" secondAttribute="leadingMargin" id="Vhp-Hz-5x8"/>
+                            <constraint firstItem="xJy-Ri-i1Z" firstAttribute="top" secondItem="dn1-d8-i4P" secondAttribute="topMargin" constant="16" id="ZY2-Tq-aal"/>
+                            <constraint firstItem="xJy-Ri-i1Z" firstAttribute="trailing" secondItem="dn1-d8-i4P" secondAttribute="trailingMargin" id="cGe-6E-OMz"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="gt2-gB-aPb"/>
                     </view>
                     <navigationItem key="navigationItem" id="h5k-VC-4TG">
@@ -320,7 +329,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKm-rA-CD6">
-                                <rect key="frame" x="172" y="279" width="30" height="30"/>
+                                <rect key="frame" x="172.5" y="279" width="30" height="30"/>
                                 <state key="normal" image="retweet-icon"/>
                                 <state key="selected" image="retweet-icon-green"/>
                                 <connections>
@@ -328,7 +337,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGE-2q-Fdt">
-                                <rect key="frame" x="268" y="279" width="30" height="30"/>
+                                <rect key="frame" x="268.5" y="279" width="30" height="30"/>
                                 <state key="normal" image="favor-icon"/>
                                 <state key="selected" image="favor-icon-red"/>
                                 <connections>
@@ -336,7 +345,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGx-xT-qa1">
-                                <rect key="frame" x="76" y="279" width="30" height="30"/>
+                                <rect key="frame" x="76.5" y="279" width="30" height="30"/>
                                 <state key="normal" image="reply-icon"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRv-SX-ZPD">
@@ -371,8 +380,8 @@
                             <constraint firstItem="QX3-SO-uu8" firstAttribute="top" relation="greaterThanOrEqual" secondItem="S7M-cb-I0j" secondAttribute="bottom" constant="10" id="lle-0T-exE"/>
                             <constraint firstItem="Mic-yi-zEA" firstAttribute="leading" secondItem="CUi-u3-IsK" secondAttribute="leadingMargin" id="p6x-2H-B3a"/>
                             <constraint firstItem="v6x-I9-dYL" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="DRv-SX-ZPD" secondAttribute="trailing" constant="240" id="sMW-Zw-2AY"/>
-                            <constraint firstItem="lGx-xT-qa1" firstAttribute="leading" secondItem="CUi-u3-IsK" secondAttribute="leadingMargin" constant="60" id="tKH-BS-Ehx"/>
                             <constraint firstItem="v6x-I9-dYL" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="lGx-xT-qa1" secondAttribute="bottom" constant="10" id="tYf-Qw-Uoq"/>
+                            <constraint firstItem="FKm-rA-CD6" firstAttribute="centerX" secondItem="CUi-u3-IsK" secondAttribute="centerX" id="xPL-qh-Ksd"/>
                             <constraint firstItem="CQX-ah-wSm" firstAttribute="top" secondItem="Mic-yi-zEA" secondAttribute="top" id="yho-xL-Hnz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="v6x-I9-dYL"/>

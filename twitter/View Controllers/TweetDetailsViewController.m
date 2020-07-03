@@ -28,7 +28,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     // getting profile picture from api and setting it in the table cell
     NSURL *profileURL = [NSURL URLWithString:self.tweet.user.profileImageURL];

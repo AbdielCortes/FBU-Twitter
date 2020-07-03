@@ -50,12 +50,7 @@
     // Get timeline
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
-//            NSLog(@"Successfully loaded home timeline");
             self.tweetsArray = (NSMutableArray *) tweets;
-
-//            for (Tweet *tweet in self.tweetsArray) {
-//                NSLog(@"%@", tweet.text);
-//            }
         } else {
             NSLog(@"Error getting home timeline: %@", error.localizedDescription);
         }
@@ -72,16 +67,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TweetCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
     cell.tweet = self.tweetsArray[indexPath.row];
-//    self.tableView.rowHeight = 161;
     
     return cell;
 }
-
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    UINavigationController *navigationController = [segue destinationViewController];
-//    ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
-//    composeController.delegate = self;
-//}
 
 - (void)didTweet:(nonnull Tweet *)tweet {
     [self.tweetsArray addObject:tweet];
@@ -121,6 +109,5 @@
         tweetDetailsViewController.tweet = tweet;
     }
 }
-
 
 @end
